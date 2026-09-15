@@ -95,3 +95,16 @@ a { color: inherit; text-decoration: none; } button, input, textarea { font: inh
   .floating-card { padding: 8px 9px; }
   .workflow-step b { font-size: 20px; }
 }
+
+.resume-modal { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 24px; background: rgba(2, 4, 8, .86); backdrop-filter: blur(12px); }
+.resume-panel { width: min(960px, 100%); height: min(88vh, 860px); overflow: hidden; border: 1px solid var(--line); background: #0d1118; box-shadow: 0 30px 90px rgba(0,0,0,.5); }
+.resume-toolbar { display: flex; min-height: 64px; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 16px 12px 21px; border-bottom: 1px solid var(--line); }
+.resume-toolbar > div:first-child { display: grid; gap: 3px; text-transform: uppercase; }
+.resume-toolbar span { color: #f5f5f0; font-size: 11px; letter-spacing: .14em; }
+.resume-toolbar small { color: var(--muted); font-size: 8px; letter-spacing: .16em; }
+.resume-toolbar > div:last-child { display: flex; align-items: center; gap: 8px; }
+.resume-toolbar a, .resume-toolbar button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; gap: 7px; padding: 0 12px; border: 1px solid var(--line); color: #e7e9e7; background: transparent; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
+.resume-toolbar a:hover, .resume-toolbar button:hover { border-color: var(--blue); color: var(--blue); }
+.resume-toolbar button { width: 38px; padding: 0; }
+.resume-panel iframe { display: block; width: 100%; height: calc(100% - 64px); border: 0; background: #fff; }
+@media (max-width: 600px) { .resume-modal { padding: 10px; } .resume-panel { width: 100%; height: 92vh; } .resume-toolbar { min-height: 58px; padding: 10px 10px 10px 14px; } .resume-toolbar a { display: none; } .resume-panel iframe { height: calc(100% - 58px); } }

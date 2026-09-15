@@ -82,6 +82,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
   const [formState, setFormState] = useState('idle');
+  const [resumeOpen, setResumeOpen] = useState(false);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -135,7 +136,7 @@ function App() {
             <motion.p className="hero-intro" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>Passionate about travel, tourism, people and experiences — building my professional journey through communication, marketing and travel technology.</motion.p>
             <motion.div className="hero-actions" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               <a className="button button-primary" href="#about">Explore my journey <ArrowDownRight size={17} /></a>
-              <a className="button button-quiet" href="/images/Aditya_Adhikari_Resume.pdf" download>Download CV <ArrowDownRight size={16} /></a>
+              <button className="button button-quiet" type="button" onClick={() => setResumeOpen(true)}>View CV <ArrowUpRight size={16} /></button>
             </motion.div>
           </div>
           <motion.div className="hero-visual" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, delay: 0.35 }}>
@@ -180,6 +181,7 @@ function App() {
 
         <section className="contact-section section-pad" id="contact"><div className="content-wrap"><div className="contact-grid"><div><SectionIntro number="08" eyebrow="Contact" title={<>Let’s<br /><i>connect.</i></>} /><p className="contact-intro">Interested in travel, tourism, collaboration or new opportunities? Let’s start a conversation.</p><a className="email-link" href="#contact">Open the contact form <ArrowDownRight size={17} /></a></div><form className="contact-form" onSubmit={submitContact}>{[['name', 'Name', 'Your full name'], ['email', 'Email', 'you@example.com'], ['subject', 'Subject', 'What would you like to discuss?']].map(([name, label, placeholder]) => <label key={name}>{label}<input required name={name} type={name === 'email' ? 'email' : 'text'} placeholder={placeholder} /></label>)}<label>Message<textarea required name="message" minLength="10" placeholder="Tell me a little about it..." /></label><button className="button button-primary" type="submit" disabled={formState === 'sending'}>{formState === 'sending' ? 'Sending...' : formState === 'success' ? <>Message sent <Check size={17} /></> : <>Send message <Send size={16} /></>}</button><AnimatePresence>{formState === 'error' && <motion.p className="form-status error" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>Something went wrong. Please try again.</motion.p>}</AnimatePresence></form></div></div></section>
       </main>
+      <AnimatePresence>{resumeOpen && <motion.div className="resume-modal" role="dialog" aria-modal="true" aria-label="Aditya Adhikari resume" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><motion.div className="resume-panel" initial={{ opacity: 0, y: 20, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 12, scale: .98 }}><div className="resume-toolbar"><div><span>Aditya Adhikari</span><small>Resume / CV</small></div><div><a href="/images/Aditya_Adhikari_Resume.pdf" download>Download <ArrowDownRight size={15} /></a><button type="button" onClick={() => setResumeOpen(false)} aria-label="Close CV"><X size={19} /></button></div></div><iframe title="Aditya Adhikari resume" src="/images/Aditya_Adhikari_Resume.pdf#view=FitH" /></motion.div></motion.div>}</AnimatePresence>
       <footer className="footer"><div className="content-wrap footer-inner"><div><a className="brand" href="#top">AA<span>.</span></a><p>Travel &amp; Tourism Management</p></div><div className="footer-nav">{navItems.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div><button className="back-top" onClick={() => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })}>Back to top <ArrowUpRight size={15} /></button><small>© 2026 Aditya Adhikari</small></div></footer>
     </div>
   );
