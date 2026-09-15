@@ -135,7 +135,7 @@ function App() {
             <motion.p className="hero-intro" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>Passionate about travel, tourism, people and experiences — building my professional journey through communication, marketing and travel technology.</motion.p>
             <motion.div className="hero-actions" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               <a className="button button-primary" href="#about">Explore my journey <ArrowDownRight size={17} /></a>
-              <a className="button button-quiet" href="#contact">Request CV <ArrowUpRight size={16} /></a>
+              <a className="button button-quiet" href="/images/Aditya_Adhikari_Resume.pdf" download>Download CV <ArrowDownRight size={16} /></a>
             </motion.div>
           </div>
           <motion.div className="hero-visual" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, delay: 0.35 }}>
