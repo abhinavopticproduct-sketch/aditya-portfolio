@@ -140,7 +140,7 @@ function App() {
           </div>
           <motion.div className="hero-visual" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, delay: 0.35 }}>
             <div className="visual-orbit orbit-one" /><div className="visual-orbit orbit-two" />
-            <div className="portrait-frame"><img src="/images/profile.webp" alt="Aditya Adhikari" /></div>
+            <div className="portrait-frame"><img src="/images/Aditya.png" alt="Aditya Adhikari" /></div>
             <div className="portrait-tag tag-top"><span>27° 42' N</span><small>KATHMANDU, NEPAL</small></div>
             <div className="portrait-tag tag-bottom"><span>01 / 03</span><small>THE JOURNEY BEGINS</small></div>
             <div className="floating-card card-nathm"><b>NATHM</b><span>Travel &amp; Tourism</span></div>
